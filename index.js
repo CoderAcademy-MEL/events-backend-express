@@ -22,7 +22,7 @@ app.use(cors({
   origin: "http://localhost:8080"
 }))
 
-app.post("/seed", express.json(), async (req, res) => {
+app.post("/seed", async (req, res) => {
   await Event.deleteMany();
   const file = fs.readFileSync("history.json", {encoding: "utf8"});
   const { result } = JSON.parse(file);
